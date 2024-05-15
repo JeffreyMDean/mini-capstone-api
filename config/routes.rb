@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "/products" => "products#index"
-  get "/products/:id" => "products#show"
+  get "/products/:id" => "products#show"         # :id makes it dynamic and can do custom routes based on database
+  post "/products/:name" => "products#create"    
 end
 
 
