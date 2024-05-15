@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "/products" => "products#index"
   get "/products/:id" => "products#show"         # :id makes it dynamic and can do custom routes based on database
-  post "/products/:name" => "products#create"    
+  post "/products" => "products#create"    
 end
 
 
