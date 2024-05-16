@@ -11,10 +11,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(
-      name: params[:input_name],
-      price: params[:input_price], 
-      image_url: params[:input_image_url], 
-      description: params[:input_description],
+      name: params[:name],
+      price: params[:price], 
+      image_url: params[:image_url], 
+      description: params[:description],
       )
     render :show
   end
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   def update       # fix?
     @product = Product.find_by(id: params[:id])
     product.update(
-      name: params[:name] = @product.name || @product.name
+      name: params[:name] = @product.name || @product.name,
       price: params[:price] || @product.price,
       image_url: params[:image_url] || @product.image_url,
       description: params[:description] || @product.description,
