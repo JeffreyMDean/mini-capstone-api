@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
       name: params[:name],
       price: params[:price], 
       image_url: params[:image_url], 
-      description: params[:description],
+      description: params[:description]
       )
     render :show
   end
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
       name: params[:name] = @product.name || @product.name,
       price: params[:price] || @product.price,
       image_url: params[:image_url] || @product.image_url,
-      description: params[:description] || @product.description,
+      description: params[:description] || @product.description
     )
     render :show
   end
