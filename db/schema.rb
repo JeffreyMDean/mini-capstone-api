@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_180304) do
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
+    t.string "title"
     t.string "name"
     t.integer "price"
     t.string "image_url"
