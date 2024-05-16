@@ -18,11 +18,8 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params[:id])
-    product.title = "pencil"
-    product.name = "pencil"
-    product.price = 1
-    product.image_url = "https://belusaweb.s3.amazonaws.com/product-images/colors/hex-golf-pencils-with-erasers-ak61250-yellow.jpg"
-    product.description = "This is used for writing."
+    product.update(name: params[:name], price: params[:price], image_url: params[:image_url], description: params[:description])
+    render template: "products/show"
   end
 end
 
