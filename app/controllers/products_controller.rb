@@ -1,25 +1,39 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all 
-    render template: "products/index"
+    render :index
   end
 
-  def show
-    the_id = params[:id]
-    @product = Product.find_by(id: the_id)
-    render template: "products/show"
+  def show     
+    @product = Product.find_by(id: params[:id])
+    render :show 
   end
 
   def create
-    @product = Product.new(name: params[:input_name], price: params[:input_price], image_url: params[:input_image_url], description: params[:input_description])
-    @product.save
-    render template: "products/show"
+    @product = Product.create(
+      name: params[:input_name],
+      price: params[:input_price], 
+      image_url: params[:input_image_url], 
+      description: params[:input_description],
+      )
+    render :show
   end
 
-  def update
-    product = Product.find_by(id: params[:id])
-    product.update(name: params[:name], price: params[:price], image_url: params[:image_url], description: params[:description])
-    render template: "products/show"
+  def update       # fix?
+    @product = Product.find_by(id: params[:id])
+    product.update(
+      name: params[:name] = @product.name || @product.name
+      price: params[:price] || @product.price,
+      image_url: params[:image_url] || @product.image_url,
+      description: params[:description] || @product.description,
+    )
+    render :show
+  end
+
+  def destroy
+    @profuct = Product.find_by(id: params[:id])
+    @product.destroy
+    render json: { message: "Product destroyed"}
   end
 end
 
