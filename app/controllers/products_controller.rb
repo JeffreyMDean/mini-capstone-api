@@ -31,10 +31,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @profuct = Product.find_by(id: params[:id])
+    @product = Product.find_by(id: params[:id])
     @product.destroy
     render json: { message: "Product destroyed"}
   end
+
 end
 
   
