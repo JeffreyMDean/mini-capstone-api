@@ -15,3 +15,11 @@ product2.save
 
 product3 = Product.new(name: "toaster", price: 20, image_url: "https://assets.katomcdn.com/q_auto,f_auto,w_390,dpr_2/v1517273234/products/141/141-WCT702/141-wct702.jpg", description: "This is for toasting bread.")
 product3.save
+
+supplier1 = Supplier.new(name: "Adidas", email: "adidas@email.com", phone_number: "1214542389")
+supplier1.save
+
+supplier2 = Supplier.new(name: "Nike", email: "nike@email.com", phone_number: "8846246575")
+supplier2.save
+
+

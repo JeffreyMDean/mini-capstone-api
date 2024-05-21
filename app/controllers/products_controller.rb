@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
       price: params[:price] || @product.price,
       image_url: params[:image_url] || @product.image_url,
       description: params[:description] || @product.description
+      @product.save! 
     )
     render :show
   end
