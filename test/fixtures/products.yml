@@ -4,12 +4,10 @@ one:
   title: MyString
   name: MyString
   price: 1
-  image_url: MyString
   description: MyString
 
 two:
   title: MyString
   name: MyString
   price: 1
-  image_url: MyString
   description: MyString
