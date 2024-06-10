@@ -24,3 +24,4 @@
 
 product5 = Product.new(name: "table", price: 50, image_url: "google.com", description: "This is a table", supplier_id: 5, url: "https://m.media-amazon.com/images/I/81c4XM1Oo7L._AC_SY450_.jpg")
 product5.save
+

@@ -1,2 +1,0 @@
-class CreateImage < ApplicationRecord
-end

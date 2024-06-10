@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except [:index, :show] #opposite would be only: [:create, :update, :destroy]
   def index
     pp current_user
     @products = Product.all 
