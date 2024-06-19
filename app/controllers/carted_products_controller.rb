@@ -1,4 +1,6 @@
 class CartedProductsController < ApplicationController
+  before_action :authenticate_user
+
   def create
     @carted_products = CartedProduct.create(
       user_id: params[:user_id],
@@ -11,7 +13,12 @@ class CartedProductsController < ApplicationController
   end
 
   def index
-    @carted_products = CartedProduct.all
-    render json: { message: "hello" }
+    @user_carted_products = current_user.carted_products 
+    @carted_products = []
+    @user_carted_products.each do |carted_product|
+    if carted_product.status == "carted"
+      @carted_products << carted_product 
+    end
   end
+end
 end
