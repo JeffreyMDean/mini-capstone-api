@@ -3,22 +3,17 @@ class CartedProductsController < ApplicationController
 
   def create
     @carted_products = CartedProduct.create(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       product_id: params[:product_id],
+      status: params[:status],
+      order_id: params[:order_id],
       quantity: params[:quantity],
-      status: "carted",
-      order_id: nil,
     )
-    render json: { message: "hello" }
+    @carted_product.save 
   end
 
   def index
-    @user_carted_products = current_user.carted_products 
-    @carted_products = []
-    @user_carted_products.each do |carted_product|
-    if carted_product.status == "carted"
-      @carted_products << carted_product 
-    end
+    @carted_products = CartedProducts.where(user_id: current_user.id, status: 'carted')
+    render :index
   end
-end
 end
