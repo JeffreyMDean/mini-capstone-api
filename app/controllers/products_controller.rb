@@ -1,8 +1,12 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin, except [:index, :show] #opposite would be only: [:create, :update, :destroy]
   def index
-    pp current_user
-    @products = Product.all 
+    if params[:name]
+      category = Category.find_by(name: params[:name])
+      @products = category.products
+    else
+      @products = Product.all
+    end
     render :index
   end
 
