@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin, except [:index, :show] #opposite would be only: [:create, :update, :destroy]
+  before_action :authenticate_admin, except: [:index, :show] #opposite would be only: [:create, :update, :destroy]
   def index
     if params[:name]
       category = Category.find_by(name: params[:name])
@@ -31,8 +31,8 @@ class ProductsController < ApplicationController
       name: params[:name] = @product.name,
       price: params[:price] || @product.price,
       description: params[:description] || @product.description
-      @product.save 
     )
+    @product.save 
     render :show
   end
 
